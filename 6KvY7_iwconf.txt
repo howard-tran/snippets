@@ -1,0 +1,36 @@
+lo        no wireless extensions.
+
+enp0s31f6  no wireless extensions.
+
+wlp44s0   IEEE 802.11  ESSID:"VNPT_ANHHUY"  
+          Mode:Managed  Frequency:2.437 GHz  Access Point: 4C:12:E8:3C:22:82   
+          Bit Rate=258 Mb/s   Tx-Power=20 dBm   
+          Retry short limit:7   RTS thr:off   Fragment thr:off
+          Power Management:off
+          Link Quality=70/70  Signal level=-26 dBm  
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:15073   Missed beacon:0
+
+br-9fcbbeada075  no wireless extensions.
+
+br-d225bd22c648  no wireless extensions.
+
+br-eebefbee8738  no wireless extensions.
+
+br-2b4d2db63959  no wireless extensions.
+
+docker0   no wireless extensions.
+
+br-6a4b3082aa74  no wireless extensions.
+
+vethafbb784  no wireless extensions.
+
+veth5c02e43  no wireless extensions.
+
+veth189454b  no wireless extensions.
+
+veth6dad19d  no wireless extensions.
+
+veth8852ff0  no wireless extensions.
+
+enx6adbca725ed2  no wireless extensions.

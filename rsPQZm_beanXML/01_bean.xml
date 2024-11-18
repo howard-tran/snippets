@@ -1,0 +1,12 @@
+<bean class="WeatherTimeFactory" id="WeatherTimeFactoryV3">
+</bean>
+<bean id="WeatherTimeFactoryV3_f2" factory-bean="WeatherTimeFactoryV3"
+        factory-method="getWeatherTime" scope="prototype"
+        name="weatherfactoryv3">
+    <qualifier value="v3">
+
+    </qualifier>
+</bean>
+<bean class="WeatherServiceV3">
+    <lookup-method name="getWeatherTime" bean="weatherfactoryv3"/>
+</bean>
