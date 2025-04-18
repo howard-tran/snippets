@@ -1,0 +1,12 @@
+Exception in thread "Thread-34" java.util.NoSuchElementException
+        at java.base/java.util.List.getFirst(List.java:825)
+        at org.app.ChessGame.Piece.ChessPiece.spanCastling(ChessPiece.java:114)
+        at org.app.ChessGame.Board.calFenString_castling(Board.java:394)
+        at org.app.ChessGame.Board.calFENString(Board.java:376)
+        at org.app.ChessGame.DTO.GameState.msgRender(GameState.java:433)
+        at org.app.ChessGame.GameRoom.notifyRender(GameRoom.java:165)
+        at org.app.ChessGame.GameRoom.handleUserTurn(GameRoom.java:198)
+        at org.app.ChessGame.GameServer.pathRedirect(GameServer.java:255)
+        at org.app.ChessGame.GameServer.handleInitialMessage(GameServer.java:104)
+        at org.app.ChessGame.GameServer.lambda$entry$0(GameServer.java:46)
+        at java.base/java.lang.Thread.run(Thread.java:1583)
