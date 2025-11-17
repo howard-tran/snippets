@@ -1,0 +1,22 @@
+openssl genrsa -out ${KEYS_FOLDER}/ldap.key 2048
+
+openssl req -new -key ${KEYS_FOLDER}/ldap.key -out ${KEYS_FOLDER}/ldap.csr \
+    -subj "/CN=${LDAP_HOST}/OU=TEST/O=CONFLUENT/L=PaloAlto/ST=Ca/C=US" \
+    -addext "subjectAltName = DNS:${LDAP_HOST},DNS:localhost"
+
+LDAP_CERT_SERIAL=$(awk -v seed="$RANDOM" 'BEGIN { srand(seed); printf("0x%.4x%.4x%.4x%.4x\n", rand()*65535 + 1, rand()*65535 + 1, rand()*65535 + 1, rand()*65535 + 1) }')
+openssl x509 -req -CA ${KEYS_FOLDER}/snakeoil-ca-1.crt -CAkey ${KEYS_FOLDER}/snakeoil-ca-1.key -in ${KEYS_FOLDER}/ldap.csr -out ${KEYS_FOLDER}/ldap-ca1-signed.crt -sha256 -days 365 -set_serial ${LDAP_CERT_SERIAL} -passin pass:confluent -extensions v3_req -extfile <(cat <<EOF
+[req]
+distinguished_name = req_distinguished_name
+x509_extensions = v3_req
+prompt = no
+[req_distinguished_name]
+CN = openldap
+[v3_req]
+extendedKeyUsage = serverAuth, clientAuth
+subjectAltName = @alt_names
+[alt_names]
+DNS.1 = ${LDAP_HOST}
+DNS.2 = localhost
+EOF
+)
